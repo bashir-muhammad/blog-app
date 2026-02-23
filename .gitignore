@@ -37,3 +37,6 @@ dist/
 todo.md
 # content-types
 tsconfig.tsbuildinfo
+
+# storybook
+storybook-static/
