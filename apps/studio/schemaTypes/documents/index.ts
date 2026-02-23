@@ -4,6 +4,7 @@ import {categoryType} from './category'
 import {postType} from './post'
 import {menuType} from './menu'
 import {tagType} from './tag'
+import {commentsType} from './comments'
 
 export const documentTypes = [
   landingPageType,
@@ -12,4 +13,5 @@ export const documentTypes = [
   postType,
   menuType,
   tagType,
+  commentsType,
 ]

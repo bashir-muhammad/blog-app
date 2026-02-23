@@ -52,6 +52,12 @@ export const postType = defineType({
       title: 'Published at',
       type: 'datetime',
     }),
+    defineField({
+      name: 'comments',
+      title: 'Comments',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'comments'}}],
+    }),
   ],
 
   preview: {

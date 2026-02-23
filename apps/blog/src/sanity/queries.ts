@@ -33,7 +33,13 @@ const POST_LIST_PROJECTION = `
 const POST_DETAIL_PROJECTION = `
   ...,
   "author": author->{ _id, name },
-  "categories": categories[]->{ _id, title }
+  "categories": categories[]->{ _id, title },
+  "approvedComments": *[_type == "comments" && references(^._id) && approved == true] | order(_createdAt desc) {
+    _id,
+    name,
+    comment,
+    _createdAt
+  }
 `;
 
 // Keep section expansion; only internal projection changed (no excerpt now).
