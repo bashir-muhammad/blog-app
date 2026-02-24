@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { createElement } from "react";
 import "../src/styles.css";
 
 const preview: Preview = {
@@ -11,6 +12,12 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story) => 
+      createElement('div', { style: { fontFamily: 'var(--font-family-sans)' } }, 
+        createElement(Story)
+      ),
+  ],
 };
 
 export default preview;
