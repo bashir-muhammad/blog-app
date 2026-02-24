@@ -4,31 +4,33 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
-  "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors
+  disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 
+  outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring`,
   {
     variants: {
       variant: {
         primary:
-          "bg-primary text-primary-foreground hover:bg-astral-700 dark:hover:bg-astral-300 shadow-md hover:shadow-lg",
+          "bg-primary text-primary-foreground hover:bg-primary/90 transition-colors ",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-astral-300 dark:hover:bg-astral-700 border-astral-300 dark:border-astral-700 border shadow-sm",
-        link: "text-primary hover:text-astral-700 dark:hover:text-astral-300 px-0 underline-offset-4 hover:underline",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        link: "text-primary underline-offset-4 hover:underline",
         outline:
-          "border-astral-400 bg-background text-astral-700 dark:text-astral-300 hover:bg-astral-100 hover:border-astral-500 dark:hover:bg-astral-900 dark:hover:border-astral-400 border-2",
+          "border-2 border-foreground text-foreground hover:bg-foreground/5 transition-colors",
         ghost:
-          "text-astral-700 dark:text-astral-300 hover:bg-astral-100 hover:text-astral-800 dark:hover:bg-astral-900 dark:hover:text-astral-200",
+          "text-foreground hover:bg-foreground/10 transition-colors",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md hover:shadow-lg",
         success:
           "bg-success text-success-foreground hover:bg-success/90 shadow-md hover:shadow-lg",
         accent:
-          "bg-accent text-accent-foreground hover:bg-astral-600 dark:hover:bg-astral-400 shadow-md hover:shadow-lg",
+          "bg-accent text-accent-foreground hover:bg-accent/90 shadow-md hover:shadow-lg",
       },
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 gap-1.5 rounded-md px-3 text-xs has-[>svg]:px-2.5",
-        lg: "h-11 rounded-md px-8 text-base has-[>svg]:px-6",
-        xl: "h-12 rounded-lg px-10 text-lg font-semibold has-[>svg]:px-8",
+        default: 'h-10 px-4 py-2',
+        sm: 'h-8 px-3 text-xs',
+        lg: 'h-12 px-6',
+        xl: 'h-14 px-8 text-lg',
         icon: "size-9",
         "icon-sm": "size-8",
         "icon-lg": "size-10",

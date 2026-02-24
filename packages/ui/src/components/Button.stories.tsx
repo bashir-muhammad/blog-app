@@ -9,6 +9,18 @@ const meta: Meta<typeof Button> = {
     variant: "primary",
     size: "default",
   },
+  argTypes: {
+    size: {
+      control: "radio",
+      options: ["sm", "default", "lg", "xl"],
+      description: "Button size",
+    },
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "outline", "ghost", "destructive", "success", "accent", "link"],
+      description: "Button variant style",
+    },
+  },
   parameters: {
     layout: "centered",
   },
@@ -61,25 +73,6 @@ export const Link: Story = {
     variant: "link",
   },
 };
-
-// export const Sizes: Story = {
-//   render: () => (
-//     <div className="flex flex-wrap items-center gap-3" role="list">
-//       <div role="listitem">
-//         <Button size="sm">Small</Button>
-//       </div>
-//       <div role="listitem">
-//         <Button size="default">Default</Button>
-//       </div>
-//       <div role="listitem">
-//         <Button size="lg">Large</Button>
-//       </div>
-//       <div role="listitem">
-//         <Button size="xl">Extra large</Button>
-//       </div>
-//     </div>
-//   ),
-// };
 
 export const Disabled: Story = {
   args: {
