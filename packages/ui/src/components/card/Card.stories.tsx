@@ -8,7 +8,7 @@ import {
   CardAction,
   CardHeader,
 } from "./card";
-import { Button } from "./button";
+import { Button } from "../button/button";
 
 const meta: Meta<typeof Card> = {
   title: "UI/Card",
@@ -44,7 +44,9 @@ export const WithAction: Story = {
     <Card className="w-96">
       <CardHeader>
         <CardTitle>Card with Action</CardTitle>
-        <CardDescription>Click the action button in the top right</CardDescription>
+        <CardDescription>
+          Click the action button in the top right
+        </CardDescription>
         <CardAction>
           <Button variant="ghost" size="sm">
             X
@@ -121,7 +123,7 @@ export const WithFullBleedImage: Story = {
       <img
         src="https://avatar.vercel.sh/shadcn1"
         alt="Event cover"
-        className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
+        className="brightness-60 dark:brightness-40 relative z-20 aspect-video w-full object-cover grayscale"
       />
       {/* <div className="bg-gradient-to-r from-blue-400 to-purple-500 aspect-video w-full" /> */}
       <CardHeader>
@@ -129,7 +131,10 @@ export const WithFullBleedImage: Story = {
         <CardDescription>Full-bleed image touching all edges</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>This card demonstrates proper spacing with a full-bleed image at the top.</p>
+        <p>
+          This card demonstrates proper spacing with a full-bleed image at the
+          top.
+        </p>
       </CardContent>
       <CardFooter>
         <Button variant="primary" size="sm">

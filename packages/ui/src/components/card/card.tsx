@@ -6,7 +6,7 @@ const Card = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
     <div
       ref={ref}
       className={twMerge(
-        "bg-card text-card-foreground flex flex-col gap-6 py-6 rounded-md border shadow-sm has-[>img:first-child]:pt-0",
+        "bg-card text-card-foreground flex h-full flex-col gap-6 overflow-hidden rounded-md border py-6 shadow-sm has-[>img:first-child]:pt-0",
         className,
       )}
       {...props}

@@ -11,9 +11,9 @@
   ],
   "license": "MIT",
   "exports": {
-    "./button": "./src/components/button.tsx",
+    "./button": "./src/components/button/button.tsx",
     "./section": "./src/components/section.tsx",
-    "./card": "./src/components/card.tsx",
+    "./card": "./src/components/card/card.tsx",
     "./gradient": "./src/components/gradient.tsx",
     "./styles.css": "./dist/index.css",
     "./*": "./dist/*.js"
