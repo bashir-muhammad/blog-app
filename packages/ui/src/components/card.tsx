@@ -6,7 +6,7 @@ const Card = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
     <div
       ref={ref}
       className={twMerge(
-        "border border-astral-200 flex h-full flex-col gap-4 overflow-hidden rounded-lg shadow-md",
+        "bg-card text-card-foreground flex flex-col gap-6 py-6 rounded-md border shadow-sm has-[>img:first-child]:pt-0",
         className,
       )}
       {...props}
@@ -77,7 +77,7 @@ const CardContent = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={twMerge("flex h-full flex-col gap-4 p-6 pt-0", className)}
+      className={twMerge("flex h-full flex-col gap-4 px-6", className)}
       {...props}
     />
   ),
@@ -86,7 +86,7 @@ CardContent.displayName = "CardContent";
 
 const CardFooter = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<"div">>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={twMerge("mt-auto", className)} {...props} />
+    <div ref={ref} className={twMerge("mt-auto px-6", className)} {...props} />
   ),
 );
 CardFooter.displayName = "CardFooter";

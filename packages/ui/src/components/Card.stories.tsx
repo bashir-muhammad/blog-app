@@ -47,7 +47,7 @@ export const WithAction: Story = {
         <CardDescription>Click the action button in the top right</CardDescription>
         <CardAction>
           <Button variant="ghost" size="sm">
-            ⋯
+            X
           </Button>
         </CardAction>
       </CardHeader>
@@ -77,7 +77,7 @@ export const MultipleActions: Story = {
       <CardContent>
         <p>This card can have multiple action buttons in the footer.</p>
       </CardContent>
-      <CardFooter className="flex gap-2">
+      <CardFooter>
         <Button variant="primary">Save</Button>
         <Button variant="secondary">Cancel</Button>
       </CardFooter>
@@ -109,6 +109,31 @@ export const FullExample: Story = {
         </Button>
         <Button variant="secondary" size="sm">
           Dismiss
+        </Button>
+      </CardFooter>
+    </Card>
+  ),
+};
+
+export const WithFullBleedImage: Story = {
+  render: () => (
+    <Card className="w-96 overflow-hidden">
+      <img
+        src="https://avatar.vercel.sh/shadcn1"
+        alt="Event cover"
+        className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
+      />
+      {/* <div className="bg-gradient-to-r from-blue-400 to-purple-500 aspect-video w-full" /> */}
+      <CardHeader>
+        <CardTitle>Card with Image</CardTitle>
+        <CardDescription>Full-bleed image touching all edges</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p>This card demonstrates proper spacing with a full-bleed image at the top.</p>
+      </CardContent>
+      <CardFooter>
+        <Button variant="primary" size="sm">
+          Learn more
         </Button>
       </CardFooter>
     </Card>
