@@ -17,7 +17,7 @@ const meta: Meta<typeof Button> = {
     },
     variant: {
       control: "select",
-      options: ["primary", "secondary", "outline", "ghost", "destructive", "success", "accent", "link"],
+      options: ["primary", "secondary", "outline", "ghost", "destructive", "success", "link"],
       description: "Button variant style",
     },
   },
@@ -59,12 +59,6 @@ export const Destructive: Story = {
 export const Success: Story = {
   args: {
     variant: "success",
-  },
-};
-
-export const Accent: Story = {
-  args: {
-    variant: "accent",
   },
 };
 
