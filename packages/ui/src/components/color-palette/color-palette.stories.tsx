@@ -1,5 +1,4 @@
-import React from "react";
-import { ColorPalette } from "./ColorPalette";
+import { ColorPalette } from "./color-palette";
 
 export default {
   title: "Design/ColorPalette",
