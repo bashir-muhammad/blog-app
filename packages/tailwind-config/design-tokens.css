@@ -84,10 +84,13 @@
   --color-teal-900: #0f2137;
 
   /* Brand */
-  --color-primary: #f74f22;
+  --color-primary: var(--color-teal-600); /* #246a91 */
+  --color-primary-foreground: var(--color-white); /* #ffffff */
+  --color-secondary: var(--color-gray); /* #f2f2f2 */
+  --color-secondary-foreground: var(--color-charcoal); /* #333333 */
 
-  --color-brand: #e84545;
-  --color-brand-hover: #c93333;
+  --color-brand: var(--color-primary);
+  --color-brand-hover: var(--color-teal-700);
   --color-gray: #f2f2f2;
 
   /* Neutrals */

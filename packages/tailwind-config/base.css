@@ -18,6 +18,10 @@
     font-family: var(--font-family-mono);
     font-size: 0.95em;
   }
+  a:hover,
+  button:hover {
+    cursor: pointer;
+  }
   h1,
   h2,
   h3,
