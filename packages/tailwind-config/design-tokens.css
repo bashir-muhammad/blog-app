@@ -72,56 +72,70 @@
   --spacing-h6-mb: 0.625rem;
 
   /* Colors */
-  --color-astral-50: #f3f8fc;
-  --color-astral-100: #e5f0f9;
-  --color-astral-200: #c6e1f1;
-  --color-astral-300: #94c9e5;
-  --color-astral-400: #5badd5;
-  --color-astral-500: #3186b1;
-  --color-astral-600: #2676a3;
-  --color-astral-700: #205e84;
-  --color-astral-800: #1e506e;
-  --color-astral-900: #1e435c;
-  --color-astral-950: #142c3d;
+  --color-teal-50: #f2f7f8;
+  --color-teal-100: #d6f0f9;
+  --color-teal-200: #a8e2f1;
+  --color-teal-300: #72c5de;
+  --color-teal-400: #3aa3c5;
+  --color-teal-500: #2a84ab;
+  --color-teal-600: #246a91;
+  --color-teal-700: #205072;
+  --color-teal-800: #173752;
+  --color-teal-900: #0f2137;
+
+  /* Brand */
+  --color-primary: #f74f22;
+
+  --color-brand: #e84545;
+  --color-brand-hover: #c93333;
+  --color-gray: #f2f2f2;
+
+  /* Neutrals */
+  --color-dark: #111111; /*Headings, dark buttons, footer bg */
+  --color-dark-alt: #1a1a1a; /*Section dark bg (hero, promo strips) */
+  --color-charcoal: #333333; /*Body copy */
+  --color-mid: #555555; /*Secondary text, captions */
+  --color-muted: #888888; /*Placeholders, disabled */
+  --color-border: #e5e5e5;
+  --color-border-dark: #dfdfdf; /* Dark mode borders */
+  --color-border-light: #eeeeee; /*Subtle separators */
+  --color-surface: #ffffff; /* default page background */
+  --color-surface-alt: #f8f8f8; /* alternate section bg (light grey) */
+  --color-white: #ffffff;
+
+  /* Semantic */
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  --color-info: var(--color-teal-400);
 
   /* Neutrals - Light mode */
-  --background: var(--color-astral-50);
+  --background: var(--color-surface);
   --foreground: var(--color-astral-950);
 
-  /* Card surfaces */
-  --card: #ffffff;
-  --card-foreground: var(--color-astral-950);
+  /* ── SHADOWS ─────────────────────────────────────
+    Generates: shadow-sm, shadow-md, shadow-lg, shadow-xl,
+    shadow-card, shadow-card-hover, shadow-nav
+  ─────────────────────────────────────────────────── */
 
-  /* Popovers */
-  --popover: #ffffff;
-  --popover-foreground: var(--color-astral-950);
+  --shadow-sm: 0 2px 10px oklch(0% 0 0 / 6%);
+  --shadow-md: 0 5px 30px oklch(0% 0 0 / 8%);
+  --shadow-lg: 0 15px 50px oklch(0% 0 0 / 12%);
+  --shadow-xl: 0 30px 80px oklch(0% 0 0 / 18%);
+  --shadow-card: 0 5px 30px oklch(0% 0 0 / 7%);
+  --shadow-card-hover: 0 15px 50px oklch(0% 0 0 / 13%);
+  --shadow-nav: 0 10px 40px oklch(0% 0 0 / 10%);
 
-  /* Primary - Astral 600 for strong brand presence */
-  --primary: var(--color-astral-600);
-  --primary-foreground: #ffffff;
+  /* ── TRANSITIONS & EASING ────────────────────────
+    Generates: ease-smooth, ease-bounce
+    (duration-* and transition-* use TW defaults — fast/base/slow added)
+  ─────────────────────────────────────────────────── */
 
-  /* Secondary - Astral 200 for subtle actions */
-  --secondary: var(--color-astral-200);
-  --secondary-foreground: var(--color-astral-900);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Muted elements */
-  --muted: var(--color-astral-100);
-  --muted-foreground: var(--color-astral-700);
-
-  /* Accent - Astral 500 for highlights */
-  --accent: var(--color-astral-500);
-  --accent-foreground: #ffffff;
-
-  /* Success - Professional Green */
-  --success: #16a34a;
-  --success-foreground: #ffffff;
-
-  /* Destructive - Refined Red */
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-
-  /* Borders and inputs */
-  --border: var(--color-astral-200);
-  --input: var(--color-astral-200);
-  --ring: var(--color-astral-500);
+  --duration-fast: 0.2s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.5s;
+  --duration-xslow: 0.8s;
 }
