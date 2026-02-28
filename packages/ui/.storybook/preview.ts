@@ -13,9 +13,11 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => 
-      createElement('div', { style: { fontFamily: 'var(--font-family-sans)' } }, 
-        createElement(Story)
+    (Story) =>
+      createElement(
+        "div",
+        { style: { fontFamily: "var(--font-family-sans)" } },
+        createElement(Story),
       ),
   ],
 };
