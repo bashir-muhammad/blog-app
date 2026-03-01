@@ -11,6 +11,7 @@
   ],
   "license": "MIT",
   "exports": {
+    "./accordion": "./src/components/accordion/accordion.tsx",
     "./button": "./src/components/button/button.tsx",
     "./section": "./src/components/section.tsx",
     "./card": "./src/components/card/card.tsx",
