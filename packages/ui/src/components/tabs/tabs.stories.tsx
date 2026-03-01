@@ -15,17 +15,27 @@ export const Default: Story = {
     <Tabs>
       <Tab name="overview" open>
         <TabTrigger>Overview</TabTrigger>
-        <TabContent>Overview content…</TabContent>
+        <TabContent>
+          Overview content. Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Quibusdam esse architecto accusantium eaque iste adipisci quod
+          dicta odit nulla minima atque, corrupti labore doloremque, recusandae,
+          magnam nemo veniam expedita aliquam.
+        </TabContent>
       </Tab>
 
-      <Tab name="details">
+      <Tab name="overview">
         <TabTrigger>Details</TabTrigger>
         <TabContent>Details content…</TabContent>
       </Tab>
 
-      <Tab name="reviews">
+      <Tab name="overview">
         <TabTrigger>Reviews</TabTrigger>
-        <TabContent>Reviews content…</TabContent>
+        <TabContent>
+          Reviews content: Lorem ipsum dolor sit, amet consectetur adipisicing
+          elit. Laborum quasi libero, ullam omnis esse dolorem quaerat
+          laudantium nostrum facilis ex natus sequi quidem rerum nemo, dolores
+          debitis recusandae tenetur consequuntur!
+        </TabContent>
       </Tab>
     </Tabs>
   ),
