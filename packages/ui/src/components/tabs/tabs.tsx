@@ -37,7 +37,7 @@ const TabTrigger = forwardRef<HTMLElement, ComponentPropsWithoutRef<"summary">>(
         "focus-visible:ring-2 focus-visible:ring-amber-600 focus-visible:ring-offset-1",
         "px-4 pb-2.5 pt-2",
         "rounded-t border border-b-0",
-        "text-muted text-h6 hover:text-dark border-transparent bg-transparent",
+        "text-h6 hover:text-dark text-muted-foreground border-transparent bg-transparent",
         "[details[open]>&]:border-border-dark [details[open]>&]:text-dark [details[open]>&]:bg-white",
 
         className,
