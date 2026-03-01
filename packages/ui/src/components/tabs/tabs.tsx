@@ -6,6 +6,8 @@ const Tabs = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, children, ...props }, ref) => (
     <div
       ref={ref}
+      role="tablist"
+      aria-orientation="horizontal"
       className={twMerge(
         "border-border relative flex w-full border-b-2",
         className,
@@ -19,17 +21,30 @@ const Tabs = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
 Tabs.displayName = "Tabs";
 
 const Tab = forwardRef<HTMLDetailsElement, ComponentPropsWithoutRef<"details">>(
-  ({ className, ...props }, ref) => (
-    <details ref={ref} className={twMerge("inline", className)} {...props} />
+  ({ className, children, ...props }, ref) => (
+    <details
+      ref={ref}
+      className={twMerge("inline", className)}
+      role="presentation"
+      {...props}
+    >
+      {children}
+    </details>
   ),
 );
 Tab.displayName = "Tab";
 
-const TabTrigger = forwardRef<HTMLElement, ComponentPropsWithoutRef<"summary">>(
-  ({ className, children, ...props }, ref) => (
+interface TabTriggerProps extends ComponentPropsWithoutRef<"summary"> {
+  open?: boolean;
+}
+
+const TabTrigger = forwardRef<HTMLElement, TabTriggerProps>(
+  ({ className, children, open, ...props }, ref) => (
     <summary
       ref={ref}
       data-tab-trigger
+      role="tab"
+      tabIndex={open ? 0 : -1}
       className={twMerge(
         "relative -mb-0.5 inline-block",
         "cursor-pointer outline-none",
@@ -39,7 +54,6 @@ const TabTrigger = forwardRef<HTMLElement, ComponentPropsWithoutRef<"summary">>(
         "rounded-t border border-b-0",
         "text-h6 hover:text-dark text-muted-foreground border-transparent bg-transparent",
         "[details[open]>&]:border-border-dark [details[open]>&]:text-dark [details[open]>&]:bg-white",
-
         className,
       )}
       {...props}
@@ -55,6 +69,8 @@ const TabContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     <div
       ref={ref}
       data-tab-content
+      role="tabpanel"
+      tabIndex={0}
       className={twMerge(
         "absolute left-0 right-0 top-[102%] bg-white pt-8 md:pt-10",
         className,
