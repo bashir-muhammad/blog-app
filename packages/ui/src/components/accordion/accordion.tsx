@@ -14,7 +14,7 @@ const AccordionItem = forwardRef<
 >(({ className, ...props }, ref) => (
   <details
     ref={ref}
-    className={twMerge("group border-b last:border-0", className)}
+    className={twMerge("border-dark group border-b", className)}
     {...props}
   />
 ));
@@ -27,7 +27,7 @@ const AccordionTrigger = forwardRef<
   <summary
     ref={ref}
     className={twMerge(
-      "font-h5 text-h5 relative w-full list-none py-5 pr-4 hover:cursor-pointer",
+      "font-h5 text-h5 relative w-full list-none py-5 pr-8 hover:cursor-pointer",
       className,
     )}
     {...props}
