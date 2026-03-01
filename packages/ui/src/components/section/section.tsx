@@ -32,7 +32,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
         ref={ref}
         className={twMerge(
           "mx-auto w-full max-w-[var(--layout-max)]",
-          hasBg ? "bg-gray-100 dark:bg-gray-900" : "",
+          hasBg ? "bg-surface-alt" : "",
           className,
         )}
         style={{ contentVisibility: "auto" }}

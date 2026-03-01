@@ -13,7 +13,7 @@
   "exports": {
     "./accordion": "./src/components/accordion/accordion.tsx",
     "./button": "./src/components/button/button.tsx",
-    "./section": "./src/components/section.tsx",
+    "./section": "./src/components/section/section.tsx",
     "./card": "./src/components/card/card.tsx",
     "./gradient": "./src/components/gradient.tsx",
     "./styles.css": "./dist/index.css",
