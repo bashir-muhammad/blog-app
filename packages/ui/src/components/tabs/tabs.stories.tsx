@@ -13,26 +13,19 @@ type Story = StoryObj<typeof Tabs>;
 export const Default: Story = {
   render: () => (
     <Tabs>
-      <Tab open name="alpha">
-        <TabTrigger>Tab 1</TabTrigger>
-        <TabContent>Content for Tab 1</TabContent>
+      <Tab name="overview" open>
+        <TabTrigger>Overview</TabTrigger>
+        <TabContent>Overview content…</TabContent>
       </Tab>
-      <Tab name="alpha">
-        <TabTrigger>Tab 2</TabTrigger>
-        <TabContent>Content for Tab 2</TabContent>
+
+      <Tab name="details">
+        <TabTrigger>Details</TabTrigger>
+        <TabContent>Details content…</TabContent>
       </Tab>
-      <Tab name="alpha">
-        <TabTrigger>Tab 3</TabTrigger>
-        <TabContent>Content for Tab 3</TabContent>
-      </Tab>
-      <Tab name="alpha">
-        <TabTrigger>Tab 4</TabTrigger>
-        <TabContent>
-          Content for Tab 4. Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Consequatur nesciunt quam tempore quidem assumenda iure, dolores
-          animi suscipit, magni molestias quo iusto reiciendis eligendi
-          quibusdam omnis, quaerat laboriosam libero! Eveniet!
-        </TabContent>
+
+      <Tab name="reviews">
+        <TabTrigger>Reviews</TabTrigger>
+        <TabContent>Reviews content…</TabContent>
       </Tab>
     </Tabs>
   ),
