@@ -1,4 +1,8 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -15,6 +19,13 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   viteFinal: async (config) => {
+    config.resolve ??= {};
+    config.resolve.alias = {
+      ...(config.resolve.alias ?? {}),
+      "next/image": path.resolve(dirname, "./mocks/next-image.tsx"),
+      "next/link": path.resolve(dirname, "./mocks/next-link.tsx"),
+    };
+
     return config;
   },
 };
