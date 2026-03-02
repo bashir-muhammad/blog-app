@@ -37,7 +37,6 @@
   .h5,
   .h6 {
     scroll-margin-top: 2rem;
-    color: var(--foreground);
   }
 
   h1,
