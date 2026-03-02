@@ -1,2 +1,3 @@
 /* Component-level styles for the Modules package */
 @import "@repo/tailwind-config";
+@source "../../ui/src/**/*.{ts,tsx,js,jsx}";
