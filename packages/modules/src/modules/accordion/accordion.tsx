@@ -1,4 +1,3 @@
-import { ComponentType } from "react";
 import { AccordionModule } from "../../types";
 import { PortableText } from "@portabletext/react";
 import {
@@ -8,20 +7,23 @@ import {
   AccordionContent,
 } from "@repo/ui/accordion";
 
-interface AccordionProps {
+export interface AccordionProps {
   data: AccordionModule;
 }
 
-const Accordion: ComponentType<AccordionProps> = ({ data }) => {
+type AccordionItemData = AccordionModule["items"][number];
+
+const Accordion = ({ data }: AccordionProps) => {
   return (
     <AccordionUI className="">
-      {data.items?.map((it: any, i: number) => (
-        <Item key={i} item={it} />
+      {data.items?.map((item, index) => (
+        <Item key={`${item.title}-${index}`} item={item} />
       ))}
     </AccordionUI>
   );
 };
-function Item({ item }: { item: any }) {
+
+function Item({ item }: { item: AccordionItemData }) {
   return (
     <AccordionItem>
       <AccordionTrigger>{item.title}</AccordionTrigger>
