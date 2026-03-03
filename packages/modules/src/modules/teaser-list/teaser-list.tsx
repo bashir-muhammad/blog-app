@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -29,14 +30,15 @@ const TeaserList = ({ data }: { data: TeaserListModule }) => {
           <CardContent className="flex-1">
             <CardTitle className="font-semibold">{item.title}</CardTitle>
             {item.summary && <CardDescription>{item.summary}</CardDescription>}
-            {item.link && (
-              <CardFooter>
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href={item.link.href}>{item.link.label}</Link>
-                </Button>
-              </CardFooter>
-            )}
           </CardContent>
+          {item.link && (
+            <CardFooter>
+              <Button variant="ghost" size="sm">
+                <Link href={item.link.href}>{item.link.label}</Link>
+                <ArrowRight />
+              </Button>
+            </CardFooter>
+          )}
         </Card>
       ))}
     </div>

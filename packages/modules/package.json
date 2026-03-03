@@ -48,7 +48,8 @@
   },
   "dependencies": {
     "@portabletext/react": "^4.0.3",
-    "@repo/ui": "workspace:*"
+    "@repo/ui": "workspace:*",
+    "lucide-react": "^0.576.0"
   },
   "devDependencies": {
     "@portabletext/types": "^2.0.15",
