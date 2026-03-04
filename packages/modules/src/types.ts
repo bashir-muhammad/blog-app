@@ -85,3 +85,14 @@ export type AnyModule =
   | ImageTeaserModule
   | TeaserListModule
   | BlogListModule;
+
+export type ImageFeaturesModule = BaseModule & {
+  _type: "imageFeatures";
+  title?: string;
+  images: string[];
+  features?: {
+    icon?: string;
+    title: string;
+    description: string;
+  }[];
+};
