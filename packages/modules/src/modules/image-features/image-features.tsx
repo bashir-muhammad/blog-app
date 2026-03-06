@@ -33,7 +33,7 @@ const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
             return (
               <FeatureBox key={index} className="items-start">
                 <FeatureBoxIcon>
-                  <DynamicIcon name={feature.icon} size={32} />
+                  <DynamicIcon name={feature.icon} size={48} />
                 </FeatureBoxIcon>
                 <FeatureBoxTitle>{feature.title}</FeatureBoxTitle>
                 <FeatureBoxDescription>
