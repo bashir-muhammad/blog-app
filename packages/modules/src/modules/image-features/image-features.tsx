@@ -14,48 +14,59 @@ const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
   const images = data?.images || [];
 
   return (
-    <div className="flex space-y-4">
-      <div className="text-2xl font-bold">
-        {images.length > 0 ? (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {images.map((src, index) => (
+    <div className="lg:flex-col-2 flex flex-row gap-8 lg:gap-10">
+      <div className="flex-[50%] flex-shrink-0">
+        <h2 className="mb-8 md:mb-11">{title}</h2>
+        <div className="grid gap-6 gap-y-8 md:grid-cols-2">
+          {features.map((feature, index) => (
+            <FeatureBox key={index} className="items-start">
+              <FeatureBoxIcon>
+                <span
+                  role="img"
+                  aria-label={feature.title}
+                  style={{ fontSize: 32 }}
+                >
+                  {feature.icon || "🚀"}
+                </span>
+              </FeatureBoxIcon>
+              <FeatureBoxTitle>{feature.title}</FeatureBoxTitle>
+              <FeatureBoxDescription>
+                {feature.description}
+              </FeatureBoxDescription>
+            </FeatureBox>
+          ))}
+        </div>
+      </div>
+      <div className="flex-[50%]">
+        {images.length > 1 ? (
+          <div className="relative flex h-full w-full items-center">
+            <div className="ml-auto aspect-[4/5] w-[70%] ">
               <Image
-                key={index}
-                src={src}
-                alt={`Feature Image ${index + 1}`}
-                width={600}
-                height={400}
-                className="mb-4 w-full rounded-lg object-cover"
+                src={images[0]?.toString() || ""}
+                alt="Feature Image 1"
+                fill
+                className="rounded-xs h-full w-full object-cover"
               />
-            ))}
+            </div>
+
+            <div className="absolute ml-5 aspect-[4/5] w-[40%]">
+              <Image
+                src={images[1]?.toString() || ""}
+                alt="Feature Image 2"
+                fill
+                className="rounded-xs h-full w-full object-cover"
+              />
+            </div>
           </div>
         ) : (
-          <Image
-            src="/placeholder-image.png"
-            alt="Placeholder"
-            width={600}
-            height={400}
-            className="mb-4 w-full rounded-lg object-cover"
-          />
+          <div className="ml-auto lg:mt-4 lg:w-[80%]">
+            <Image
+              src={images[0]?.toString() || "/placeholder.png"}
+              alt="Placeholder"
+              className="rounded-xs aspect-video w-full object-cover md:aspect-square"
+            />
+          </div>
         )}
-      </div>
-      <div>
-        <h2 className="text-2xl font-bold">{title}</h2>
-        {features.map((feature, index) => (
-          <FeatureBox key={index}>
-            <FeatureBoxIcon>
-              <span
-                role="img"
-                aria-label={feature.title}
-                style={{ fontSize: 32 }}
-              >
-                {feature.icon || "🚀"}
-              </span>
-            </FeatureBoxIcon>
-            <FeatureBoxTitle>{feature.title}</FeatureBoxTitle>
-            <FeatureBoxDescription>{feature.description}</FeatureBoxDescription>
-          </FeatureBox>
-        ))}
       </div>
     </div>
   );
