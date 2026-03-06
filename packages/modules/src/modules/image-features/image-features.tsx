@@ -5,20 +5,9 @@ import {
   FeatureBoxIcon,
 } from "@repo/ui/components/feature-box/feature-box";
 import Image from "next/image";
-import { Rocket } from "lucide-react";
+import DynamicIcon from "../../utils/dynamic-icon";
 
 import type { ImageFeaturesModule } from "../..";
-import { iconMap } from "../../utils/icon-map";
-
-/**
- * Resolves a Lucide icon by its PascalCase name string (e.g. "Zap", "ShieldCheck").
- * The name comes from the CMS editor. Falls back to `Rocket` for unknown names.
- */
-function DynamicIcon({ name, size = 32 }: { name?: string; size?: number }) {
-  const Icon = (name && iconMap[name]) || Rocket;
-  return <Icon size={size} aria-hidden="true" />;
-}
-
 const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
   const features = data?.features || [];
   const title = data?.title || "Image Features";

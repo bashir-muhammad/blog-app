@@ -57,7 +57,7 @@ const promoSection: GenericSection = {
 };
 
 const meta = {
-  title: "Modules/Sections/SectionRenderer",
+  title: "Modules/SectionRenderer",
   component: SectionRenderer,
   args: {
     section: teaserListSection,
