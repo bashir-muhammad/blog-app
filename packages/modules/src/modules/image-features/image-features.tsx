@@ -37,9 +37,9 @@ const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
           ))}
         </div>
       </div>
-      <div className="flex-[50%]">
+      <div className="flex-[50%] lg:mt-4">
         {images.length > 1 ? (
-          <div className="relative flex h-full w-full items-center">
+          <div className="relative flex w-full">
             <div className="ml-auto aspect-[4/5] w-[70%] ">
               <Image
                 src={images[0]?.toString() || ""}
@@ -49,7 +49,7 @@ const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
               />
             </div>
 
-            <div className="absolute ml-5 aspect-[4/5] w-[40%]">
+            <div className="absolute ml-5 aspect-[4/5] w-[40%] self-center">
               <Image
                 src={images[1]?.toString() || ""}
                 alt="Feature Image 2"
@@ -59,7 +59,7 @@ const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
             </div>
           </div>
         ) : (
-          <div className="ml-auto lg:mt-4 lg:w-[80%]">
+          <div className="ml-auto lg:w-[80%]">
             <Image
               src={images[0]?.toString() || "/placeholder.png"}
               alt="Placeholder"
