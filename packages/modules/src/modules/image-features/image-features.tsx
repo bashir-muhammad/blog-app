@@ -5,8 +5,19 @@ import {
   FeatureBoxIcon,
 } from "@repo/ui/components/feature-box/feature-box";
 import Image from "next/image";
+import { Rocket } from "lucide-react";
 
 import type { ImageFeaturesModule } from "../..";
+import { iconMap } from "../../utils/icon-map";
+
+/**
+ * Resolves a Lucide icon by its PascalCase name string (e.g. "Zap", "ShieldCheck").
+ * The name comes from the CMS editor. Falls back to `Rocket` for unknown names.
+ */
+function DynamicIcon({ name, size = 32 }: { name?: string; size?: number }) {
+  const Icon = (name && iconMap[name]) || Rocket;
+  return <Icon size={size} aria-hidden="true" />;
+}
 
 const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
   const features = data?.features || [];
@@ -18,23 +29,19 @@ const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
       <div className="flex-[50%] flex-shrink-0">
         <h2 className="mb-8 md:mb-11">{title}</h2>
         <div className="grid gap-6 gap-y-8 md:grid-cols-2">
-          {features.map((feature, index) => (
-            <FeatureBox key={index} className="items-start">
-              <FeatureBoxIcon>
-                <span
-                  role="img"
-                  aria-label={feature.title}
-                  style={{ fontSize: 32 }}
-                >
-                  {feature.icon || "🚀"}
-                </span>
-              </FeatureBoxIcon>
-              <FeatureBoxTitle>{feature.title}</FeatureBoxTitle>
-              <FeatureBoxDescription>
-                {feature.description}
-              </FeatureBoxDescription>
-            </FeatureBox>
-          ))}
+          {features.map((feature, index) => {
+            return (
+              <FeatureBox key={index} className="items-start">
+                <FeatureBoxIcon>
+                  <DynamicIcon name={feature.icon} size={32} />
+                </FeatureBoxIcon>
+                <FeatureBoxTitle>{feature.title}</FeatureBoxTitle>
+                <FeatureBoxDescription>
+                  {feature.description}
+                </FeatureBoxDescription>
+              </FeatureBox>
+            );
+          })}
         </div>
       </div>
       <div className="flex-[50%] lg:mt-4">

@@ -11,28 +11,28 @@ const sampleData: ImageFeaturesModule = {
   ],
   features: [
     {
-      icon: "⚡",
+      icon: "Zap",
       title: "Fast setup",
       description:
         "Launch quickly with composable modules and clear content structures.",
     },
     {
-      icon: "🔒",
+      icon: "ShieldCheck",
       title: "Secure by default",
       description:
         "Apply sane defaults and validation patterns to reduce common risks.",
     },
     {
-      icon: "♿",
+      icon: "Accessibility",
       title: "Accessible",
       description:
         "Build inclusive experiences with semantic structure and keyboard support. lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc gravida sodales.",
     },
     {
-      icon: "🔒",
-      title: "Secure by default",
+      icon: "Layers",
+      title: "Composable",
       description:
-        "Apply sane defaults and validation patterns to reduce common risks. lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc gravida sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc gravida sodales.",
+        "Mix and match modules to build any page layout. lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     },
   ],
 };
