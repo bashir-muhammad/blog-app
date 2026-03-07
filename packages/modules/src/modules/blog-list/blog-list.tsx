@@ -5,6 +5,7 @@ import { BlogListModule } from "../../types";
 import { CategoryBar } from "@repo/modules/category-bar";
 import { PostCard } from "@repo/modules/post-card";
 import { Button } from "@repo/ui/button";
+import { RotateCw } from "lucide-react";
 
 interface BlogListProps {
   data?: BlogListModule;
@@ -71,6 +72,7 @@ const BlogList = ({ data }: BlogListProps) => {
                 aria-disabled={!hasMore}
               >
                 Load more
+                <RotateCw />
               </Button>
             </div>
           )}

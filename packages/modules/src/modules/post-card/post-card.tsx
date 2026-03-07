@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import {
   Card,
   CardTitle,
@@ -25,14 +26,15 @@ const PostCard = ({ data, href }: { data: PostCardModule; href: string }) => {
       <CardContent>
         {data?.title && <CardTitle>{data.title}</CardTitle>}
         {data?.excerpt && <CardDescription>{data.excerpt}</CardDescription>}
-        <CardFooter>
-          <Button variant="ghost" asChild>
-            <Link aria-label={`Read more: ${data.title}`} href={`/${href}`}>
-              Read more
-            </Link>
-          </Button>
-        </CardFooter>
       </CardContent>
+      <CardFooter>
+        <Button variant="ghost">
+          <Link aria-label={`Read more: ${data.title}`} href={`/${href}`}>
+            Read more
+          </Link>
+          <ArrowRight />
+        </Button>
+      </CardFooter>
     </Card>
   );
 };

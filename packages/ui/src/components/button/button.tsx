@@ -1,0 +1,64 @@
+import { ButtonHTMLAttributes, forwardRef } from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
+
+const buttonVariants = cva(
+  `focus-visible:ring-ring inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm
+  font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none 
+  disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0`,
+  {
+    variants: {
+      variant: {
+        primary:
+          "bg-primary text-primary-foreground hover:bg-primary/90 transition-colors ",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-border-dark hover:text-foreground transition-colors",
+        link: "text-primary underline-offset-4 hover:underline",
+        outline:
+          "border-foreground text-foreground hover:bg-foreground hover:text-background border-2 transition-colors",
+        ghost: "text-foreground hover:bg-foreground/10 transition-colors",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md hover:shadow-lg",
+        success:
+          "bg-success text-success-foreground hover:bg-success/90 shadow-md hover:shadow-lg",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-8 px-3 text-xs",
+        lg: "h-12 px-6",
+        xl: "h-14 px-8 text-lg",
+        icon: "size-9",
+        "icon-sm": "size-8",
+        "icon-lg": "size-10",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "default",
+    },
+  },
+);
+
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        ref={ref}
+        data-slot="button"
+        className={twMerge(buttonVariants({ variant, size }), className)}
+        {...props}
+      />
+    );
+  },
+);
+Button.displayName = "Button";
+
+export { Button };

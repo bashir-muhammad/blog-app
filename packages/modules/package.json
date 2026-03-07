@@ -32,10 +32,14 @@
   "scripts": {
     "clean": "rm -rf dist",
     "prebuild": "pnpm -F @repo/ui build",
+    "prestorybook": "pnpm -F @repo/ui build:styles && pnpm run build:styles",
+    "prebuild-storybook": "pnpm -F @repo/ui build:styles && pnpm run build:styles",
     "build:styles": "mkdir -p dist && tailwindcss -i ./src/styles.css -o ./dist/index.css --minify",
     "build": "pnpm run clean && pnpm run build:styles && tsc -p tsconfig.json",
     "dev:components": "tsc --watch",
-    "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch"
+    "dev:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "storybook": "storybook dev -p 6007",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "next": "catalog:",
@@ -43,18 +47,26 @@
     "react-dom": "catalog:"
   },
   "dependencies": {
-    "@portabletext/react": "^4.0.3"
+    "@portabletext/react": "^4.0.3",
+    "@repo/ui": "workspace:*",
+    "lucide-react": "^0.576.0"
   },
   "devDependencies": {
     "@portabletext/types": "^2.0.15",
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/ui": "workspace:*",
+    "@storybook/addon-a11y": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
     "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/postcss": "^4.1.12",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.1",
+    "storybook": "^8.6.14",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "catalog:",
     "typescript": "catalog:"

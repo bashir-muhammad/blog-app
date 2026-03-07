@@ -4,8 +4,7 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./design-tokens.css",
-    "./base.css": "./base.css",
+    ".": "./global.css",
     "./postcss": "./postcss.config.js"
   },
   "devDependencies": {
