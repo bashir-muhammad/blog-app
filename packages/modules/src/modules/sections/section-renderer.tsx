@@ -54,8 +54,8 @@ const SectionRenderer = <S extends GenericSection>({
 
   return (
     <Section background={background} variant={variant}>
-      {title && <SectionTitle>{title}</SectionTitle>}
       <SectionContent variant={variant}>
+        {title && <SectionTitle>{title}</SectionTitle>}
         <Component data={section} />
       </SectionContent>
     </Section>
