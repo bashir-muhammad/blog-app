@@ -15,7 +15,7 @@ const Hero: ComponentType<HeroProps> = ({ data }) => (
     className="grid grid-cols-12 overflow-hidden"
     aria-label={data.title || "Hero section"}
   >
-    <div className="backdrop-blur-xs text-forground bg-background relative z-10 col-start-1 col-end-13 row-start-2 row-end-3 mt-auto w-full p-4 md:col-end-10 md:rounded-tr-xl lg:col-start-1 lg:col-end-7 lg:p-0">
+    <div className="backdrop-blur-xs text-forground bg-background relative z-10 col-start-1 col-end-13 row-start-2 row-end-3 mt-auto w-full p-4 md:col-end-10 md:rounded-tr-xl lg:col-start-1 lg:col-end-7 lg:row-start-1 lg:mb-14 lg:p-0">
       {data.title && <h1 className="text-astral-50">{data.title}</h1>}
       {data.text && (
         <div className="">
