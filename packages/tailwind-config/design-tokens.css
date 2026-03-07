@@ -13,14 +13,22 @@
   --breakpoint-md: 768px; /* tablets */
   --breakpoint-lg: 1024px; /* small laptops */
   --breakpoint-xl: 1280px; /* desktops */
-  --breakpoint-2xl: 1600px; /* large desktops */
-  --breakpoint-3xl: 1940px; /* page cap */
+  --breakpoint-2xl: 1440px; /* large desktops */
+  --breakpoint-3xl: 1920px; /* page cap */
+
+  /* Single fluid container padding token (use with clamp in CSS) */
+  --spacing-container: clamp(1rem, 4vw, 2.5rem);
 
   /* Semantic layout widths */
   --layout-max-page: var(--breakpoint-3xl); /* overall page cap */
-  --layout-max-content: var(--breakpoint-lg); /* standard content width */
+  --layout-max-content: var(--breakpoint-xl); /* standard content width */
   --layout-max-panel: 1040px; /* gray panel width */
   --layout-max-reading: 65ch; /* prose reading width */
+
+  /* Semantic section spacing */
+  --spacing-section-sm: clamp(2rem, 5vw, 3rem); /* tight sections   */
+  --spacing-section-md: clamp(3rem, 8vw, 5rem); /* standard sections */
+  --spacing-section-lg: clamp(4rem, 10vw, 8rem); /* hero sections    */
 
   /* Typography - Headings */
   /* Font families (Inter via next/font variable fallback). Apps should load Inter using next/font and expose --font-inter. */
