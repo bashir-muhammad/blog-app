@@ -22,62 +22,66 @@ const meta: Meta<typeof Section> = {
 export default meta;
 type Story = StoryObj<typeof Section>;
 
+const normalizeVariant = (
+  variant: "default" | "narrow" | "fullWidth" | null | undefined,
+) => variant ?? undefined;
+
 export const Default: Story = {
   args: {
     background: "none",
     variant: "default",
-    children: (
-      <>
-        <SectionTitle>Default Section</SectionTitle>
-        <SectionContent>
-          <p>This is the default section variant.</p>
-        </SectionContent>
-      </>
-    ),
   },
+  render: (args) => (
+    <Section {...args}>
+      <SectionContent variant={normalizeVariant(args.variant)}>
+        <SectionTitle>Default Section</SectionTitle>
+        <p>This is the default section variant.</p>
+      </SectionContent>
+    </Section>
+  ),
 };
 
 export const GrayBackground: Story = {
   args: {
     background: "gray",
     variant: "default",
-    children: (
-      <>
-        <SectionTitle>Gray Background</SectionTitle>
-        <SectionContent>
-          <p>This section uses the gray background variant.</p>
-        </SectionContent>
-      </>
-    ),
   },
+  render: (args) => (
+    <Section {...args}>
+      <SectionContent variant={normalizeVariant(args.variant)}>
+        <SectionTitle>Gray Background</SectionTitle>
+        <p>This section uses the gray background variant.</p>
+      </SectionContent>
+    </Section>
+  ),
 };
 
 export const Narrow: Story = {
   args: {
     background: "none",
     variant: "narrow",
-    children: (
-      <>
-        <SectionTitle>Narrow Section</SectionTitle>
-        <SectionContent variant="narrow">
-          <p>This section uses the narrow content variant.</p>
-        </SectionContent>
-      </>
-    ),
   },
+  render: (args) => (
+    <Section {...args}>
+      <SectionContent variant={normalizeVariant(args.variant)}>
+        <SectionTitle>Narrow Section</SectionTitle>
+        <p>This section uses the narrow content variant.</p>
+      </SectionContent>
+    </Section>
+  ),
 };
 
 export const FullWidth: Story = {
   args: {
     background: "none",
     variant: "fullWidth",
-    children: (
-      <>
-        <SectionTitle>Full Width Section</SectionTitle>
-        <SectionContent variant="fullWidth">
-          <p>This section uses the fullWidth content variant.</p>
-        </SectionContent>
-      </>
-    ),
   },
+  render: (args) => (
+    <Section {...args}>
+      <SectionContent variant={normalizeVariant(args.variant)}>
+        <SectionTitle>Full Width Section</SectionTitle>
+        <p>This section uses the fullWidth content variant.</p>
+      </SectionContent>
+    </Section>
+  ),
 };
