@@ -28,6 +28,7 @@
     "./category-bar": "./src/modules/category-bar/category-bar.tsx",
     "./breadcrum": "./src/modules/breadcrum/breadcrum.tsx",
     "./section-renderer": "./src/modules/sections/section-renderer.tsx",
+    "./rich-text": "./src/modules/rich-text/rich-text.tsx",
     "./*": "./dist/*.js"
   },
   "scripts": {
