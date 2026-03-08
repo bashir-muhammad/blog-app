@@ -5,6 +5,9 @@ import { TeaserList } from "../teaser-list/teaser-list";
 import { ImageTeaser } from "../image-teaser/image-teaser";
 import { BlogList } from "../blog-list/blog-list";
 import { RichText } from "../rich-text/rich-text";
+import { HeroTeaser } from "../hero-teaser/hero-teaser";
+import ImageFeatures from "../image-features/image-features";
+import Features from "../features/features";
 
 // Generic section shape (keeps it app-agnostic; apps can extend).
 export type GenericSection = {
@@ -29,6 +32,9 @@ export const defaultSectionComponents: SectionComponents = {
   accordion: Accordion,
   blogList: BlogList,
   richText: RichText,
+  heroTeaser: HeroTeaser,
+  imageFeatures: ImageFeatures,
+  features: Features,
 };
 
 export interface SectionRendererProps<

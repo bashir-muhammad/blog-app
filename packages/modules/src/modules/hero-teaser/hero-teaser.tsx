@@ -57,4 +57,4 @@ const HeroTeaser = ({ data }: { data?: HeroTeaserProps }) => {
   );
 };
 
-export default HeroTeaser;
+export { HeroTeaser };
