@@ -55,10 +55,11 @@ const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
             </div>
           </div>
         ) : (
-          <div className="ml-auto lg:w-[80%]">
+          <div className="relative ml-auto aspect-[4/5] w-full lg:w-[80%]">
             <Image
               src={images[0]?.toString() || "/placeholder.png"}
               alt="Placeholder"
+              fill
               className="rounded-xs aspect-video w-full object-cover md:aspect-square"
             />
           </div>
