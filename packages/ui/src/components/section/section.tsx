@@ -34,7 +34,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
       <section
         ref={ref}
         className={twMerge(
-          "py-[var(--spacing-section-md)]",
+          "py-[var(--spacing-section-lg)]",
           hasBg && "bg-surface-alt",
           className,
         )}
