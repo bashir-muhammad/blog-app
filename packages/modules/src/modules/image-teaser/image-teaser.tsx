@@ -7,13 +7,13 @@ import type { ImageTeaserModule } from "../../types";
 const ImageTeaser = ({ data }: { data: ImageTeaserModule }) => {
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      <div className="md:order-0 order-2 flex flex-col gap-4 p-4 md:p-0">
+      <div className="md:order-0 order-2 flex flex-col p-4 md:p-0">
         <h3 className="mb-2 font-semibold">{data.title}</h3>
         {data.description && (
           <p className="leading-relaxed text-gray-700">{data.description}</p>
         )}
         {data.link && (
-          <div className="flex gap-4">
+          <div className="mt-6 flex gap-4 md:mt-8">
             <Button asChild variant="primary" size="lg">
               <Link
                 href={data.link.href}

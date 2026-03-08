@@ -34,7 +34,7 @@ const HeroTeaser = ({ data }: { data?: HeroTeaserProps }) => {
               className="rounded-xs h-full w-full object-cover object-center"
             />
           </div>
-          <div className="absolute bottom-8 right-8 ml-auto aspect-[4/5] w-[40%] ">
+          <div className="absolute bottom-8 right-12 ml-auto aspect-[4/5] w-[40%] ">
             <img
               src={data.images[1]}
               alt={data?.title ?? "Hero Image"}

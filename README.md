@@ -1,7 +1,7 @@
 # 📝 App Monorepo
 
-A full-stack platform built with Turborepo to host React based Apps with Sanity CMS.
-The primary purpose of this Monorepo is the provide a plateform for a developer(FE) to create a small component, experiment a new feature of technology, experience new framework/technology or create a full functional App.
+A full-stack platform built with Turborepo to host React-based apps with Sanity CMS.
+This monorepo gives frontend developers a place to build small components, experiment with new technologies, and ship fully functional apps.
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.4-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.1-blue?style=flat-square&logo=react)](https://react.dev/)
@@ -12,13 +12,13 @@ The primary purpose of this Monorepo is the provide a plateform for a developer(
 ## Why a Monorepo?
 
 This repository uses a monorepo to:
+
 - Share UI components and modules across apps
 - Spin up focused apps (blog, docs, studio) without duplicating setup
 - Share TypeScript types between Studio and Blog
 - Reuse design tokens and Tailwind config
 - Keep CMS schemas aligned with frontend components
 - Simplify tooling, dependencies, and builds
-
 
 ## ✨ Features
 
@@ -74,7 +74,7 @@ This monorepo uses [pnpm](https://pnpm.io) as a package manager and includes the
 
 ```
 apps/
-├── blog/          # Main Next.js blog application (port 3001)
+├── blog/          # Main Next.js blog application
 ├── docs/          # Documentation site
 └── studio/        # Sanity Studio CMS
 ```
@@ -86,7 +86,10 @@ apps/
   - Rich text rendering
   - Custom page builder
 
-- **`docs`** - 
+- **`docs`** - The documentation app built with Next.js:
+  - Project docs and implementation notes
+  - Shared UI package integration
+  - Lightweight environment for docs-focused iteration
 
 - **`studio`** - Sanity Studio for content management:
   - Custom schema types (posts, authors, categories, tags)
@@ -149,9 +152,9 @@ pnpm install
 3. Set up environment variables:
 
 ```bash
-# Copy example env files
-cp apps/blog/.env.example apps/blog/.env.local
-cp apps/studio/.env.example apps/studio/.env.local
+# Create local environment files
+touch apps/blog/.env.local
+touch apps/studio/.env.local
 ```
 
 Fill in the following environment variables in each `.env.local` file:
@@ -179,8 +182,9 @@ pnpm dev
 ```
 
 This will start:
-- **Blog app**: http://localhost:3001
-- **Docs app**: http://localhost:3000
+
+- **Blog app**: http://localhost:3000
+- **Docs app**: http://localhost:3001
 - **Studio**: http://localhost:3333
 
 Or run individual apps:
@@ -210,7 +214,6 @@ Build specific app:
 pnpm --filter blog build
 ```
 
-
 ## 🎨 Design System
 
 This project uses Tailwind CSS v4 with a custom design system:
@@ -230,22 +233,22 @@ This project uses Tailwind CSS v4 with a custom design system:
 
 ## 🛠️ Sanity Workflows
 
-| Command | Description |
-|---------|-------------|
-| `pnpm --filter @repo/studio dev` | Run Sanity Studio locally with hot reloads |
-| `pnpm --filter @repo/studio typegen` | Regenerate `apps/blog/src/sanity/types.ts` via `sanity schema extract` + `sanity typegen generate` |
-| `pnpm --filter @repo/studio deploy` | Deploy the Studio to the managed Sanity hosting |
-| `pnpm --filter @repo/studio deploy-graphql` | Publish the project’s GraphQL API for external consumers |
+| Command                                     | Description                                                                                        |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `pnpm --filter @repo/studio dev`            | Run Sanity Studio locally with hot reloads                                                         |
+| `pnpm --filter @repo/studio typegen`        | Regenerate `apps/blog/src/sanity/types.ts` via `sanity schema extract` + `sanity typegen generate` |
+| `pnpm --filter @repo/studio deploy`         | Deploy the Studio to the managed Sanity hosting                                                    |
+| `pnpm --filter @repo/studio deploy-graphql` | Publish the project’s GraphQL API for external consumers                                           |
 
 ## 📝 Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start all apps in development mode |
-| `pnpm build` | Build all apps and packages |
-| `pnpm lint` | Lint all packages |
-| `pnpm check-types` | Type-check all packages |
-| `pnpm format` | Format code with Prettier |
+| Command            | Description                        |
+| ------------------ | ---------------------------------- |
+| `pnpm dev`         | Start all apps in development mode |
+| `pnpm build`       | Build all apps and packages        |
+| `pnpm lint`        | Lint all packages                  |
+| `pnpm check-types` | Type-check all packages            |
+| `pnpm format`      | Format code with Prettier          |
 
 ## ✅ Testing & Quality
 
@@ -262,6 +265,7 @@ This project uses Tailwind CSS v4 with a custom design system:
 ## 🔧 Tech Stack
 
 ### Frontend
+
 - [Next.js 15](https://nextjs.org/) – React framework with first-class Sanity integration and App Router conveniences for page-building workflows
 - [React 19](https://react.dev/) – UI library
 - [TypeScript](https://www.typescriptlang.org/) – Type safety
@@ -272,6 +276,7 @@ This project uses Tailwind CSS v4 with a custom design system:
   - Strong DX during component development
 
 ### Content Management
+
 - [Sanity](https://www.sanity.io/) – Headless CMS that powers the page-builder architecture with:
   - A fully customizable schema system
   - Real-time collaborative editing
@@ -283,6 +288,7 @@ This project uses Tailwind CSS v4 with a custom design system:
 - [@sanity/image-url](https://www.npmjs.com/package/@sanity/image-url) - Image optimization
 
 ### Tooling
+
 - [Turborepo](https://turbo.build/) - Monorepo build system
 
   Chosen for its:
@@ -291,6 +297,7 @@ This project uses Tailwind CSS v4 with a custom design system:
   - Zero-config task running
   - Remote cache for CI/CD
   - Perfect match for JS/TS ecosystem
+
 - [pnpm](https://pnpm.io/) - Package manager
   Selected due to:
   - Fast and disk-efficient package management
@@ -301,20 +308,16 @@ This project uses Tailwind CSS v4 with a custom design system:
 - [Prettier](https://prettier.io/) - Code formatting
 
 ### UI Components
+
 - [Radix UI](https://www.radix-ui.com/) - Headless UI primitives
 - [class-variance-authority](https://cva.style/) - Variant management
 - [tailwind-merge](https://github.com/dcastil/tailwind-merge) - Utility merging
-
 
 ## 📚 Documentation
 
 Check out the `docs/` directory for additional documentation:
 
-- [Tailwind v4 Monorepo Setup](docs/tailwind-v4-monorepo.md)
+- [Tailwind v4 Monorepo Setup](docs/tailwind-v4-monorepo-from-scratch.md)
 - More guides (architecture, content modeling, etc.) live alongside the code and will continue to grow with the project. If you add a feature, please co-locate its documentation under `docs/`.
 
-
-
 ---
-
-
