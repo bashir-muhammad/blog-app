@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import HeroTeaser from "./hero-teaser";
+import { HeroTeaser } from "./hero-teaser";
 
 const sampleData = {
   title: "Ship faster with a composable blog platform",
