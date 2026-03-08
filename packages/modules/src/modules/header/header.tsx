@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeaderModule } from "../../types";
 import { SectionContent } from "@repo/ui/section";
+import { Button } from "@repo/ui/button";
 
 const Header = ({ data }: { data: HeaderModule }) => {
   return (
     <header className="border-border mx-auto border-b py-1">
-      <SectionContent className="flex items-center">
+      <SectionContent className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {data?.logo && (
             <Link href="/">
@@ -24,11 +25,13 @@ const Header = ({ data }: { data: HeaderModule }) => {
 
           <strong className="sr-only">{data?.siteTitle ?? "Site"}</strong>
         </div>
-        <nav className="ml-8 flex gap-6">
+        <nav className="flex gap-2">
           {data?.headerMenu?.map((menu) => (
-            <Link key={menu?.href} href={`/${menu?.href}`}>
-              {menu?.label}
-            </Link>
+            <Button key={menu?.href} variant="ghost" asChild>
+              <Link key={menu?.href} href={`/${menu?.href}`}>
+                {menu?.label}
+              </Link>
+            </Button>
           ))}
         </nav>
       </SectionContent>
