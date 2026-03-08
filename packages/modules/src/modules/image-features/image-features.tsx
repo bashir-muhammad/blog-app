@@ -36,7 +36,7 @@ const ImageFeatures = ({ data }: { data: ImageFeaturesModule }) => {
       <div className="flex-[50%] lg:mt-4">
         {images.length > 1 ? (
           <div className="relative flex w-full">
-            <div className="ml-auto aspect-[4/5] w-[70%] ">
+            <div className="relative ml-auto aspect-[4/5] w-[70%]">
               <Image
                 src={images[0]?.toString() || ""}
                 alt="Feature Image 1"
