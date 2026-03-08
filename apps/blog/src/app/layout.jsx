@@ -36,7 +36,7 @@ export default async function RootLayout({ children }) {
     _type: "header",
     siteTitle: siteSettings.siteTitle ?? undefined,
     logo: siteSettings.logo
-      ? urlFor(siteSettings.logo).width(128).height(128).url()
+      ? urlFor(siteSettings.logo).width(256).fit("max").url()
       : undefined,
     headerMenu:
       siteSettings.headerMenu?.items?.filter(Boolean).map((item) => ({
