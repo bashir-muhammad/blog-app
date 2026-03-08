@@ -29,3 +29,13 @@ export const LongTitle: Story = {
       "Build better content pages with reusable modules that keep headings clear and consistent across your website",
   },
 };
+
+export const WithBreadcrum: Story = {
+  args: {
+    breadcrumItems: [
+      { label: "Home", href: "/" },
+      { label: "Blog", href: "/post" },
+      { label: "Build better content pages" },
+    ],
+  },
+};
