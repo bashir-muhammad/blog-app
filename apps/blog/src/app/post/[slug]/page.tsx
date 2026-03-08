@@ -8,6 +8,9 @@ import Link from "next/link";
 import { RichText } from "@/components/rich-text";
 import { notFound } from "next/navigation";
 import { Button } from "@repo/ui/button";
+import { ArrowLeft, UserPen, Calendar, CalendarCheck } from "lucide-react";
+import PageTitle from "@repo/modules/modules/page-title/page-title";
+import { Section, SectionContent } from "@repo/ui/section";
 
 interface PageProps {
   params: {
@@ -40,45 +43,61 @@ export default async function Page({ params }: PageProps) {
   if (!post) {
     notFound();
   }
+
+  const postTitle = post.title ?? "Untitled post";
+
+  const breadcrumItems = [
+    { label: "Home", href: "/" },
+    { label: "Blogs", href: "/blog-page" },
+  ];
+
   return (
-    <div className="min-h-screen p-8">
-      <div className="container mx-auto">
-        <Button variant={"outline"} className="mb-4" asChild>
-          <Link href="/">Back to Home</Link>
-        </Button>
-        <article className="p-8 md:p-12">
-          <header className="grid">
-            <h1 className="order-2 mt-4">{post?.title}</h1>
-            {post?.mainImage && (
+    <article>
+      <header>
+        <PageTitle
+          className=""
+          title={postTitle}
+          breadcrumItems={breadcrumItems}
+        />
+
+        <SectionContent>
+          <div className="flex gap-4 py-6 text-sm text-gray-500">
+            <span className="flex items-center gap-2">
+              <UserPen className="h-4 w-4" />
+              {post?.author?.name}
+            </span>
+            {post?.publishedAt && (
+              <span className="flex items-center gap-2">
+                <Calendar className="h-4 w-4" />
+                {new Date(post.publishedAt).toLocaleDateString()}
+              </span>
+            )}
+            {post?._updatedAt && (
+              <span className="flex items-center gap-2">
+                <CalendarCheck className="h-4 w-4" />
+                {new Date(post._updatedAt).toLocaleDateString()}
+              </span>
+            )}
+          </div>
+
+          {post?.mainImage && (
+            <div className="rounded-xs relative my-6 aspect-[21/9] w-full overflow-hidden">
               <Image
                 src={urlFor(post.mainImage).url()}
                 alt={post?.title ?? ""}
-                className="aspect-video max-h-96 w-full object-cover object-center"
-                width={600}
-                height={400}
+                fill
+                sizes="100vw"
+                className="object-cover object-center"
               />
-            )}
-            <div className="order-3 mb-6 text-sm text-gray-500">
-              <span>By {post?.author?.name}</span>
-              <span className="ml-4">
-                Published on{" "}
-                {post?.publishedAt
-                  ? new Date(post.publishedAt).toLocaleDateString()
-                  : ""}
-              </span>
-              <span className="ml-4">
-                Updated on{" "}
-                {post?._updatedAt
-                  ? new Date(post._updatedAt).toLocaleDateString()
-                  : ""}
-              </span>
             </div>
-          </header>
-          <div className="mx-auto mt-10 w-[var(--layout-max-reading)] space-y-6">
-            <RichText data={post} />
-          </div>
-        </article>
-      </div>
-    </div>
+          )}
+        </SectionContent>
+      </header>
+      <Section>
+        <SectionContent variant="narrow">
+          <RichText data={post} />
+        </SectionContent>
+      </Section>
+    </article>
   );
 }

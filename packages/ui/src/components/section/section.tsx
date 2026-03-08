@@ -1,5 +1,5 @@
 import { cva, VariantProps } from "class-variance-authority";
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef } from "react";
+import { ComponentPropsWithoutRef, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 // Content variants affect inner content width only (padding applied by Section wrapper).

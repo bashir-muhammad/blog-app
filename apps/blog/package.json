@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
@@ -12,6 +12,7 @@
     "@repo/modules": "workspace:*",
     "@repo/ui": "workspace:*",
     "@sanity/image-url": "^1.2.0",
+    "lucide-react": "^0.576.0",
     "next": "catalog:",
     "next-sanity": "^10.1.4",
     "react": "catalog:",
