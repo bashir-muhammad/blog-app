@@ -1,21 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HeaderModule } from "../../types";
+import { SectionContent } from "@repo/ui/section";
 
 const Header = ({ data }: { data: HeaderModule }) => {
   return (
-    <header className="container mx-auto">
-      <div className="mx-auto flex items-center p-6">
+    <header className="border-border mx-auto border-b py-1">
+      <SectionContent className="flex items-center">
         <div className="flex items-center gap-3">
           {data?.logo && (
             <Link href="/">
               <div className="relative min-w-24">
                 <Image
                   src={data.logo}
-                  alt="Site logo"
+                  alt={data?.siteTitle ?? "Site Logo"}
                   width={96}
                   height={64}
-                  className="h-auto max-h-16 w-auto object-contain"
+                  className="h-auto max-h-14 w-auto object-contain"
                 />
               </div>
             </Link>
@@ -30,7 +31,7 @@ const Header = ({ data }: { data: HeaderModule }) => {
             </Link>
           ))}
         </nav>
-      </div>
+      </SectionContent>
     </header>
   );
 };
