@@ -81,7 +81,7 @@ export default async function Page({ params }: PageProps) {
           </div>
 
           {post?.mainImage && (
-            <div className="rounded-xs relative my-6 aspect-video w-full overflow-hidden">
+            <div className="rounded-xs relative my-6 aspect-[21/9] w-full overflow-hidden">
               <Image
                 src={urlFor(post.mainImage).url()}
                 alt={post?.title ?? ""}
