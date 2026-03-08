@@ -69,6 +69,10 @@ const expandSections = defineQuery(`
       ...,
       "images": images[].asset->url,
       "link": link{ ${LINK_PROJECTION} }
+    },
+    _type == 'imageFeatures' => {
+      ...,
+      "images": images[].asset->url
     }
   }
 `);

@@ -54,7 +54,7 @@ export const heroTeaserType = defineType({
     prepare({title, subtitle, media}: {title?: string; subtitle?: string; media?: any}) {
       return {
         title: title || 'Hero Teaser',
-        subtitle: subtitle ? `CTA: ${subtitle}` : 'Hero Teaser section',
+        subtitle: subtitle ? `Hero Teaser: ${subtitle}` : 'No link label',
         media,
       }
     },
