@@ -5,20 +5,23 @@ import { HeaderModule } from "../../types";
 const Header = ({ data }: { data: HeaderModule }) => {
   return (
     <header className="container mx-auto">
-      <div className="mx-auto flex items-center p-4">
+      <div className="mx-auto flex items-center p-6">
         <div className="flex items-center gap-3">
           {data?.logo && (
-            <Image
-              src={data.logo}
-              alt="logo"
-              width={64}
-              height={64}
-              className="rounded"
-            />
+            <Link href="/">
+              <div className="relative min-w-24">
+                <Image
+                  src={data.logo}
+                  alt="Site logo"
+                  width={96}
+                  height={64}
+                  className="h-auto max-h-16 w-auto object-contain"
+                />
+              </div>
+            </Link>
           )}
-          <Link href="/">
-            <strong>{data?.siteTitle ?? "Site"}</strong>
-          </Link>
+
+          <strong className="sr-only">{data?.siteTitle ?? "Site"}</strong>
         </div>
         <nav className="ml-8 flex gap-6">
           {data?.headerMenu?.map((menu) => (
