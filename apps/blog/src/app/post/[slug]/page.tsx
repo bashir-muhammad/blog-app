@@ -4,12 +4,11 @@ import { POST_SLUGS_QUERY } from "@/sanity/queries";
 import { sanityFetch } from "@/sanity/live";
 import { client } from "@/sanity/client"; // use raw client for build-time SSG
 import Image from "next/image";
-import Link from "next/link";
-import { RichText } from "@/components/rich-text";
 import { notFound } from "next/navigation";
-import { Button } from "@repo/ui/button";
-import { ArrowLeft, UserPen, Calendar, CalendarCheck } from "lucide-react";
+
+import { UserPen, Calendar, CalendarCheck } from "lucide-react";
 import PageTitle from "@repo/modules/modules/page-title/page-title";
+import { RichText } from "@repo/modules/rich-text";
 import { Section, SectionContent } from "@repo/ui/section";
 
 interface PageProps {
@@ -94,9 +93,10 @@ export default async function Page({ params }: PageProps) {
         </SectionContent>
       </header>
       <Section>
-        <SectionContent variant="narrow">
-          <RichText data={post} />
-        </SectionContent>
+        <RichText
+          data={post}
+          resolveImageUrl={(image) => urlFor(image as any).url()}
+        />
       </Section>
     </article>
   );

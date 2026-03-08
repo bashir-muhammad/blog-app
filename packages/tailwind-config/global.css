@@ -1,3 +1,4 @@
 @import "./design-tokens.css";
+@plugin "@tailwindcss/typography";
 @import "./themes.css";
 @import "./base.css";
