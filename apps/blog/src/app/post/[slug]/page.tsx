@@ -93,12 +93,10 @@ export default async function Page({ params }: PageProps) {
         </SectionContent>
       </header>
       <Section>
-        <SectionContent variant="narrow">
-          <RichText
-            data={post}
-            resolveImageUrl={(image) => urlFor(image as any).url()}
-          />
-        </SectionContent>
+        <RichText
+          data={post}
+          resolveImageUrl={(image) => urlFor(image as any).url()}
+        />
       </Section>
     </article>
   );

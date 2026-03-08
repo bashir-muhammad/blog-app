@@ -1,6 +1,7 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import { SectionContent } from "@repo/ui/section";
+import { twMerge } from "tailwind-merge";
 
 interface RichTextData {
   body?: unknown[];
@@ -9,6 +10,7 @@ interface RichTextData {
 interface RichTextProps {
   data?: RichTextData | Record<string, unknown> | null;
   resolveImageUrl?: (image: unknown) => string | null | undefined;
+  className?: string;
 }
 
 const getImageDimensionsFromUrl = (url: string) => {
@@ -30,7 +32,7 @@ const isObject = (value: unknown): value is Record<string, unknown> =>
 
 const isExternalUrl = (href: string) => /^(https?:)?\/\//.test(href);
 
-const RichText = ({ data, resolveImageUrl }: RichTextProps) => {
+const RichText = ({ data, resolveImageUrl, className }: RichTextProps) => {
   const components: PortableTextComponents = {
     types: {
       image: ({ value }) => {
@@ -73,6 +75,7 @@ const RichText = ({ data, resolveImageUrl }: RichTextProps) => {
             href={href || "#"}
             target={external ? "_blank" : undefined}
             rel={external ? "noreferrer noopener" : undefined}
+            className="text-primary hover:text-brand-hover underline underline-offset-4"
           >
             {children}
           </a>
@@ -81,7 +84,14 @@ const RichText = ({ data, resolveImageUrl }: RichTextProps) => {
       internalLink: ({ children, value }) => {
         const href =
           isObject(value) && typeof value.href === "string" ? value.href : "#";
-        return <a href={href}>{children}</a>;
+        return (
+          <a
+            href={href}
+            className="text-primary hover:text-brand-hover underline underline-offset-4"
+          >
+            {children}
+          </a>
+        );
       },
     },
   };
@@ -90,7 +100,17 @@ const RichText = ({ data, resolveImageUrl }: RichTextProps) => {
 
   return (
     <SectionContent variant={"narrow"}>
-      <PortableText value={body} components={components} />
+      <div
+        className={twMerge(
+          "prose prose-neutral max-w-[var(--layout-max-reading)]",
+          "prose-headings:font-heading prose-headings:text-dark",
+          "prose-a:text-primary hover:prose-a:text-brand-hover",
+          "prose-img:rounded-xs",
+          className,
+        )}
+      >
+        <PortableText value={body} components={components} />
+      </div>
     </SectionContent>
   );
 };
